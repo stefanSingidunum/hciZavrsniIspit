@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Theater Layout</title>
+        <link href="images/logo.jpg" rel="icon favicon" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/main_css.css" type="text/css" rel="stylesheet" />
+        <link href="bower_components/font_awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js" type="text/javascript"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls-2.5.0.js" type="text/javascript"></script>
+        <script src="js/main_js.js" type="text/javascript"></script>
+    </head>
+
+    <body ng-app="webshop" ng-controller="webshop_ctrl as vm">
+
+        <!-- navigation menu -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- navbar-header when its collapsed -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my_navbar">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </button>
+                    <a class="navbar-brand" href="#"><img class="img-responsive" src="images/logo.jpg" alt="Logo brand" /></a>
+                </div>
+                <!-- things to collapse -->
+                <div id="my_navbar" class="navbar-collapse collapse">
+                   
+                    <ul class="nav navbar-nav navbar-right">
+						<li><a href="index.html">Početna</a></li>
+						<li><a href="about.html">O nama</a></li>
+						<li><a href="repertoar.html">Repertoar</a></li>
+                        <li><a href="#" ng-click="vm.show_modal('reg')" ng-if="vm.show_reg">Registracija</a></li>
+                        <li><a href="#" ng-click="vm.show_modal('login')" ng-if="vm.show_login">Login</a></li>                        
+                        <li class="dropdown" ng-if="vm.logged_in !== null">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{vm.logged_in}} <span class="caret"></span></a>
+                            <ul class="dropdown-menu" id="user_dropdown">
+								
+                                <li style="text-align: right;"><a href="#" ng-click="vm.show_modal('login')">Promeni korisnika</a></li>
+                                <li style="text-align: right;"><a href="#" ng-click="vm.logout()">Logout</a></li> 
+								<li style="text-align: right;"><a href="#" ng-click="vm.show_modal('reg')" ng-if="vm.show_reg">Promena korisničkih parametara</a></li>
+								
+                            </ul>
+                        </li>
+                        <li><a href="#" ng-click="vm.show_cart()" ng-if="vm.logged_in !== null"><i class="fa fa-shopping-cart" aria-hidden="true" style="font-family: FontAwesome;"></i> Korpa</a></li>
+                    </ul>
+                    
+                </div> <!-- things to collapse end -->
+            </div> <!-- container end -->
+        </nav> <!-- navigation menu end -->
+
+        <!-- uib alerts -->
+        <div uib-alert
+             ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')"
+             dismiss-on-timeout="2500"
+             close="closeAlert($index)">
+            {{alert.msg}}
+        </div>
+        <!-- uib alerts end -->
+
+		
+        <p class="oNama" >
+			<font size="6">O nama</font> <br></br>
+			Pozorište „AMC“ je osnovano 26.12.1995. godine. Prvih godina je radilo povremeno a sa redovnim svakodnevnim repertoarom krenulo je početkom 1999. godine. 
+			Za ove 23 godine izveli smo preko 120 premijera, a naša pozorišna sezona traje od početka septembra do jula sledeće godine. 
+			Kako je repertoar osnova rada svakog pozorišta, u tom periodu, izuzimajući par dana novogodišnjih i božićnih praznika, 
+			predstave izvodimo iz večeri u veče, po čemu smo jedinstveno pozorište ne samo na našim prostorima.<br></br>
+			Pozorište „AMC“ je još po mnogo čemu jedinstveno pozorište u Beogradu i Srbiji, specifičnog duha i originalne pozorišne koncepcije 
+			koja neštedimice unosi jednu posebnu boju u pozorišni život glavnog grada. Za kratko vreme, zahvaljujući pažljivo odabranom repertoaru, 
+			zauzima značajno mesto ne samo među beogradskim pozorištima. Dokaz za to je što su ti rezultati prepoznati i od naših mnogobrojnih gledalaca i stručne javnosti.
+			U uslovima veoma izražene nepismenosti i siromaštva stanovništva kao najvećih neprijatelja pozorišta prvenstveno smo se trudili da ne budemo dosadni.
+			Na sceni Pozorišta „AMC“ glumac je uvek u centru umetničkih zbivanja, kao što je to gotovo uvek slučaj u oprobanoj teatarskoj praksi širom sveta.<br></br>
+			Posebnu pažnju posvećujemo kako svetskim i domaćim klasicima tako i savremenoj domaćoj dramskoj produkciji, kao i žanrovskoj raznolikosti repertoara. 
+			Potpuno svesni i manjkavosti repertoara, ali i ubeđeni da je takav repertoar jedini način opstanka jednog samofinasirajućeg pozorišta u našim uslovima,
+			koje je i osnivač uglednog Međunarodnog pozorišnog Festivala koji je u kontinuitetu održan već 16. put, kao i manifestacije „Nušićevi dani u Pozorištu AMC“ 
+			koja se održava 6 godina i na kojoj se 8 dana izvde isključivo Nušićeva dela uvek sa po jednom praizvedbom.	
+			</p>
+			
+			<div class="banerSredinaTopONama">
+				
+					
+					<img class="slikaBanerSredina" src="images/opera1.jpg" onclick="window.open(this.src)" height="150">
+					<img class="slikaBanerSredina" src="images/opera2.jpg" onclick="window.open(this.src)" height="150">
+					<img class="slikaBanerSredina" src="images/opera3.jpg" onclick="window.open(this.src)" height="150">
+					<img class="slikaBanerSredina" src="images/opera4.jpg" onclick="window.open(this.src)" height="150">
+
+			</div>
+
+
+        <!-- registration and login modal -->
+        <script type="text/ng-template" id="modal.html">
+            <div class="modal-header">
+                <h3 class="modal-title" ng-if="vm2.state === 'login'">Login</h3>
+                <h3 class="modal-title" ng-if="vm2.state === 'reg'">Registracija</h3>
+            </div>    
+            <div class="modal-body">
+                <!-- login modal -->
+                <section class="login-form" ng-if="vm2.state === 'login'">
+                    <form>
+                        <div class="form-group">                        
+                            <input type="text" ng-model="vm2.login_name" class="form-control" placeholder="Korisnicko ime">                        
+                            <input type="password" ng-model="vm2.login_password" class="form-control" placeholder="Lozinka">                    
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block" ng-click="vm2.login()">Login</button>
+                            <a href="#" ng-click="vm2.state = 'reg'">Nemate nalog? Registrujte se</a>
+                        </div>                    
+                    </form>
+                </section><!-- login modal end-->
+                <!-- registration modal -->
+                <section class="login-form" ng-if="vm2.state === 'reg'">
+                    <form>
+                    <div class="form-group">                        
+                        <input type="text" ng-model="vm2.signup_name" class="form-control" placeholder="Korisnicko ime">                        
+                        <input type="password" ng-model="vm2.signup_password" class="form-control" placeholder="Lozinka">                                            
+                        <input type="password" ng-model="vm2.confirmed_password" class="form-control" placeholder="Ponovljena lozinka">                    
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block" ng-click="vm2.register()">Registruj se</button>
+                    </div>
+                </form>
+                </section><!-- registration modal end-->
+            </div>
+            <div class="modal-footer">                
+                <button class="btn btn-warning" ng-click="vm2.cancel()">Nazad</button>                   
+            </div>  
+        </script><!-- registration and login modal end -->
+    </body>
+</html>

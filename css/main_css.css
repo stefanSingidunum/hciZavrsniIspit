@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    padding: 0;
+	background-image: url("stage1.jpg");
+	
+}
+.navbar-header a {
+    padding: 0;
+}
+.page_container {
+    margin-top: 70px;
+}
+.cart_container {
+    margin-top: 70px;
+}
+.alert {
+    position: absolute;
+    bottom: 5px;
+    left: 10%;
+    width: 80%;
+    z-index: 1040;
+    transition: all 0.5s;
+}
+img[alt="Logo brand"] {
+    height: 100%;
+}
+
+.oNama{
+	padding-top: 100px;
+	width: 70%;
+	text-align: center;
+	padding-left: 20%;
+	padding-right: 20%;
+    display: table-cell;
+    vertical-align: middle;
+	padding-bottom: 100px;
+	
+}
+.banerLevo{
+		padding-top: 10%;
+		float: left;
+		margin-top: 10px;
+		margin-bottom: 30px;
+		padding-right: 80px;
+		text-align: justify;
+		margin-left: 20%;
+		
+	}
+	.banerDesno{
+		padding-top: 10%;
+		float: right;
+		margin-top: 10px;
+		margin-bottom: 30px;
+		padding-right: 5%;
+		display: inline-block;
+		
+		margin-right: 20%;
+		
+	}
+	.banerSredinaTop{
+		padding-top: 30%;
+		text-align: center;
+		background-image: url("stage1.jpg");
+	}
+	
+	.banerSredinaTopONama{
+	
+		text-align: center;
+	}
+	
+	option{
+	color: white;
+	background-color: #b5b5b5;
+	}
+
+	
+	.opisPredstave{
+	width: 45%;
+	padding-top: 50px;
+	text-align: justify;
+	margin-right: 20px;
+	margin-left: 20px;
+	
+	margin-left: 30%;
+	
+	}
+	
+	.filterPredstava{
+		float: right;
+		margin-top: 10px;
+	}
+	
+	
+	
+	
+	

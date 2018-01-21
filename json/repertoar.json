@@ -1,0 +1,38 @@
+[
+{
+        "naziv": "RODOLJUPCI", 
+        "kategorija": "Narodno pozorište Beograd", 
+        "img": "https://4.bp.blogspot.com/-vri5HG0-qlM/V2211IQ_deI/AAAAAAAAXXU/A92T1SjJkb8BWDS6Ka07roeirLMHU_6GwCLcB/s1600/RODOLJUPCI.jpg", 
+        "popust": 10, 
+        "opis": "Premijera čuvenog Sterijinog komada, za koju je pisac tražio da bude odigrana 50 godina nakon njegove smrti, u režiji subotičkog reditelja Andraša Urbana održana je 30. oktobra 2015. godine na sceni Narodnog pozorišta Beograd. Zbivanja u ovoj komediji dešavaju se burne 1848.godine kada “gori cijela Evropa”. To je godina “proljeća naroda” u kojoj se revolucija munjevito širi od Francuske preko Italije, Mađarske do male banatske varoši Vršca, gdje se većim dijelom zbiva radnja djela. Taj gradić je rodno mjesto pisca Jovana Sterije Popovića. Da bi se shvatile istorijske okolnosti u kojima je djelo nastalo i gdje se radnja djela dešava: Vojvodina je bila dio Austro-Ugarske monarhije, dok je Srbija bila samostalna knjaževina. Srbi pod mađarskom vlašću nisu imali svoju autonomiju, pravo na jezik, upravljanje školama, srazmjerno učešće u državnoj upravi.", 
+        "ocena": 1, 
+        "kolicina": 47, 
+        "proizvodjac": "Church & Dwight Company, Inc.", 
+        "cena": 450, 
+        "id": 1
+},
+{
+        "naziv": "Syrup - Monin, Swiss Choclate", 
+        "kategorija": "Hemija", 
+        "img": "http://dummyimage.com/179x192.jpg/ff4444/ffffff", 
+        "popust": 10, 
+        "opis": "fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel", 
+        "ocena": 1, 
+        "kolicina": 47, 
+        "proizvodjac": "Church & Dwight Company, Inc.", 
+        "cena": 600, 
+        "id": 2
+},
+{
+        "naziv": "Syrup - Monin, Swiss Choclate", 
+        "kategorija": "Hemija", 
+        "img": "http://dummyimage.com/179x192.jpg/ff4444/ffffff", 
+        "popust": 10, 
+        "opis": "fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel", 
+        "ocena": 1, 
+        "kolicina": 47, 
+        "proizvodjac": "Church & Dwight Company, Inc.", 
+        "cena": 800, 
+        "id": 3
+}
+]

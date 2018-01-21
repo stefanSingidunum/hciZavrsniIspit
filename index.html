@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Theater Layout</title>
+        <link href="images/logo.jpg" rel="icon favicon" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/main_css.css" type="text/css" rel="stylesheet" />
+        <link href="bower_components/font_awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js" type="text/javascript"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls-2.5.0.js" type="text/javascript"></script>
+        <script src="js/main_js.js" type="text/javascript"></script>
+    </head>
+	
+	
+
+    <body  ng-app="webshop" ng-controller="webshop_ctrl as vm">
+
+        <!-- navigation menu -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- navbar-header when its collapsed -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my_navbar">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </button>
+                    <a class="navbar-brand" href="#"><img class="img-responsive" src="images/logo.jpg" alt="Logo brand" /></a>
+                </div>
+                <!-- things to collapse -->
+                <div id="my_navbar" class="navbar-collapse collapse">
+                   
+                    <ul class="nav navbar-nav navbar-right">
+						<li><a href="#">Početna</a></li>
+						<li><a href="about.html">O nama</a></li>
+						<li><a href="repertoar.html">Repertoar</a></li>
+                        <li><a href="#" ng-click="vm.show_modal('reg')" ng-if="vm.show_reg">Registracija</a></li>
+                        <li><a href="#" ng-click="vm.show_modal('login')" ng-if="vm.show_login">Login</a></li>                        
+                        <li class="dropdown" ng-if="vm.logged_in !== null">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{vm.logged_in}} <span class="caret"></span></a>
+                            <ul class="dropdown-menu" id="user_dropdown">
+								
+                                <li style="text-align: right;"><a href="#" ng-click="vm.show_modal('login')">Promeni korisnika</a></li>
+                                <li style="text-align: right;"><a href="#" ng-click="vm.logout()">Logout</a></li>
+								<li style="text-align: right;"><a href="#" ng-click="vm.show_modal('reg')">Promena korisničkih parametara</a></li>
+								
+								 
+                            </ul>
+                        </li>
+                        <li><a href="#" ng-click="vm.show_cart()" ng-if="vm.logged_in !== null"><i class="fa fa-shopping-cart" aria-hidden="true" style="font-family: FontAwesome;"></i> Korpa</a></li>
+                    </ul>
+                    
+                </div> <!-- things to collapse end -->
+            </div> <!-- container end -->
+        </nav> <!-- navigation menu end -->
+
+        <!-- uib alerts -->
+        <div uib-alert
+             ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')"
+             dismiss-on-timeout="2500"
+             close="closeAlert($index)">
+            {{alert.msg}}
+        </div>
+        <!-- uib alerts end -->
+		
+		
+		<div class="banerLevo">
+				<form name="demoForm">
+        <select name="demoSelect" onchange="showData()">
+            
+            <option selected value="11:00 - Sala 1 - Majka hrabrost i njena deca<br></br>
+						   14:30 - Sala 2 - Otelo<br></br>
+						   16:40 - Sala 2 - Čekaonica<br></br>
+						   18:30 - Sala 3 - Dnevnik o Čarnojeviću – Miloš Lolić<br></br>
+						   20:00 - Sala 3 - Zmajeubice</strong>"
+		    >Ponedeljak</option>
+            <option value="12:00 - Sala 1 - Bela kafa<br></br>
+						   14:00 - Sala 1 - Avgust u okrugu Osejdž<br></br>
+						   16:30 - Sala 2 - Zmajeubice<br></br>
+						   18:00 - Sala 3 - Čekaonica<br></br>
+						   21:15 - Sala 3 - Majka hrabrost i njena deca
+			">Utorak</option>
+            <option value="11:00 - Sala 1 - Majka hrabrost i njena deca<br></br>
+						   14:30 - Sala 2 - Otelo<br></br>
+						   16:40 - Sala 2 - Zmajeubice<br></br>
+						   18:30 - Sala 3 - Dnevnik o Čarnojeviću – Miloš Lolić<br></br>
+						   20:30 - Sala 3 - Čekaonica
+			">Sreda</option>
+			<option value="12:15 - Sala 1 - Čekaonica<br></br>
+						   14:00 - Sala 1 - Avgust u okrugu Osejdž<br></br>
+						   16:30 - Sala 2 - Zmajeubice<br></br>
+						   18:00 - Sala 3 - Bela kafa<br></br>
+						   21:15 - Sala 3 - Majka hrabrost i njena deca
+			">Četvrtak</option>
+            <option value="12:00 - Sala 1 - Bela kafa<br></br>
+						   14:00 - Sala 1 - Avgust u okrugu Osejdž<br></br>
+						   15:30 - Sala 2 - Zmajeubice<br></br>
+						   18:00 - Sala 3 - Čekaonica<br></br>
+						   21:15 - Sala 3 - Majka hrabrost i njena deca
+			">Petak</option>
+			<option value="11:00 - Sala 1 - Majka hrabrost i njena deca<br></br>
+						   14:30 - Sala 2 - Otelo<br></br>
+						   16:40 - Sala 2 - Čekaonica<br></br>
+						   18:00 - Sala 3 - Dnevnik o Čarnojeviću – Miloš Lolić<br></br>
+						   20:00 - Sala 3 - Zmajeubice
+			">Subota</option>
+            <option value="13:00 - Sala 1 - Avgust u okrugu Osejdž<br></br>
+						   14:00 - Sala 1 - Bela kafa<br></br>
+						   16:00 - Sala 2 - Zmajeubice<br></br>
+						   18:00 - Sala 3 - Majka hrabrost i njena deca<br></br>
+						   21:15 - Sala 3 - Čekaonica
+			">Nedelja</option>
+			
+        </select>
+    </form>
+
+	<p id="thirdP">&nbsp;</p>
+    <p id="secondP">&nbsp;</p>
+	
+	<script>
+    function showData() {
+	
+        var theSelect = demoForm.demoSelect;
+        var firstP = document.getElementById('firstP');
+        var secondP = document.getElementById('secondP');
+        var thirdP = document.getElementById('thirdP');
+		
+		
+		thirdP.innerHTML = ('Prikazan je repertoar za dan: ' + theSelect[theSelect.selectedIndex].text);
+        
+        secondP.innerHTML = ('' + theSelect[theSelect.selectedIndex].value);
+		
+        
+		
+    }
+     </script>
+	 
+			</div>
+			
+			
+			
+			
+			<div class="banerDesno">
+				<ul>
+					<p><strong>Najnovije predstave</strong></p>
+					<li><a href="predstava1.html"><font color="black">1 - Majka hrabrost i njena deca</font></a></li>
+					<li><a href="predstava2.html"><font color="black">2 - Zmajeubice</font></a></li>
+					<li><a href="predstava3.html"><font color="black">3 - Bela kafa</font></a></li>
+					<li><a href="predstava4.html"><font color="black">4 - Otelo</font></a></li>
+					<li><a href="predstava5.html"><font color="black">5 - Avgust u okrugu Osejdž</font></a></li>
+					
+				</ul>
+			</div><br></br>
+			</div>
+			
+			<div class="banerSredinaTop">
+				
+					
+					
+					<img class="slikaBanerSredina" src="images/slika1.jpg" onclick="window.open(this.src)" height="150">
+					<img class="slikaBanerSredina" src="images/slika2.jpg" onclick="window.open(this.src)" height="150">
+					<img class="slikaBanerSredina" src="images/slika3.jpg" onclick="window.open(this.src)" height="150">
+					<img class="slikaBanerSredina" src="images/slika4.jpg" onclick="window.open(this.src)" height="150"><br></br>
+					
+					<img class="slikaBanerSredina" src="images/slika5.jpg" onclick="window.open(this.src)" height="150">
+					<img class="slikaBanerSredina" src="images/slika6.jpg" onclick="window.open(this.src)" height="150">
+					<img class="slikaBanerSredina" src="images/slika7.jpg" onclick="window.open(this.src)" height="150">
+					<img class="slikaBanerSredina" src="images/slika8.jpg" onclick="window.open(this.src)" height="150">
+					
+					
+					
+			</div>
+
+        <!-- registration and login modal -->
+        <script type="text/ng-template" id="modal.html">
+            <div class="modal-header">
+                <h3 class="modal-title" ng-if="vm2.state === 'login'">Login</h3>
+                <h3 class="modal-title" ng-if="vm2.state === 'reg'">Registracija</h3>
+            </div>    
+            <div class="modal-body">
+                <!-- login modal -->
+                <section class="login-form" ng-if="vm2.state === 'login'">
+                    <form>
+                        <div class="form-group">                        
+                            <input type="text" ng-model="vm2.login_name" class="form-control" placeholder="Korisnicko ime">                        
+                            <input type="password" ng-model="vm2.login_password" class="form-control" placeholder="Lozinka">                    
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block" ng-click="vm2.login()">Login</button>
+                            <a href="#" ng-click="vm2.state = 'reg'">Nemate nalog? Registrujte se</a>
+                        </div>                    
+                    </form>
+                </section><!-- login modal end-->
+                <!-- registration modal -->
+                <section class="login-form" ng-if="vm2.state === 'reg'">
+                    <form>
+                    <div class="form-group">                        
+                        <input type="text" ng-model="vm2.signup_name" class="form-control" placeholder="Korisnicko ime">                        
+                        <input type="password" ng-model="vm2.signup_password" class="form-control" placeholder="Lozinka">                                            
+                        <input type="password" ng-model="vm2.confirmed_password" class="form-control" placeholder="Ponovljena lozinka">                    
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block" ng-click="vm2.register()">Registruj se</button>
+                    </div>
+                </form>
+                </section><!-- registration modal end-->
+            </div>
+            <div class="modal-footer">                
+                <button class="btn btn-warning" ng-click="vm2.cancel()">Nazad</button>                   
+            </div>  
+        </script><!-- registration and login modal end -->
+    </body>
+</html>
